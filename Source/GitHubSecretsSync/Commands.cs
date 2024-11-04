@@ -21,7 +21,7 @@ static class Commands
         ArgumentException.ThrowIfNullOrEmpty(repository);
         ArgumentNullException.ThrowIfNull(secrets);
 
-        if (repository.Split('/') is not [var repositoryOwner, var repositoryName])
+        if (repository.Split('/') is not [{ Length: > 0 } repositoryOwner, { Length: > 0 } repositoryName])
         {
             throw new ArgumentException("Invalid repository format. Expected format is owner/repo.");
         }
