@@ -26,16 +26,22 @@ static class Commands
             throw new ArgumentException("Invalid repository format. Expected format is owner/repo.");
         }
 
+        Console.WriteLine($"Synchronizing GitHub Actions Secrets to {repository}.");
+
         var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
         ArgumentException.ThrowIfNullOrEmpty(token);
 
         var client = GitHubClient.Create(token);
+
+        Console.WriteLine($"Getting the public key.");
 
         var publicKey = await client.Actions.Secrets.GetPublicKeyAsync(repositoryOwner, repositoryName).ConfigureAwait(false);
         var publicKeyBytes = Convert.FromBase64String(publicKey.Key);
 
         foreach (var secretName in secrets.SplitArray())
         {
+            Console.WriteLine($"Synchronizing the secret '{secretName}'.");
+
             var secretValue = Environment.GetEnvironmentVariable(secretName);
             ArgumentException.ThrowIfNullOrEmpty(secretValue);
 
