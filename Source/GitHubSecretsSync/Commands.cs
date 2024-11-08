@@ -33,7 +33,7 @@ static class Commands
 
         var client = GitHubClient.Create(token);
 
-        Console.WriteLine($"Getting the public key.");
+        Console.WriteLine("Getting the public key.");
 
         var publicKey = await client.Actions.Secrets.GetPublicKeyAsync(repositoryOwner, repositoryName).ConfigureAwait(false);
         var publicKeyBytes = Convert.FromBase64String(publicKey.Key);
