@@ -1,5 +1,5 @@
 name: GitHub Secrets Sync
-description: シークレットを同期するGitHub Actionsです。
+description: This is a GitHub Actions to synchronize secrets.
 author: finphie
 branding:
   icon: upload-cloud
@@ -7,10 +7,10 @@ branding:
 
 inputs:
   repository:
-    description: 「オーナー名/リポジトリ名」形式のリポジトリ名。
+    description: \"owner/repo\" format repository name.
     required: true
   secrets:
-    description: シークレットのリスト。カンマやスペース、改行区切りで指定。
+    description: List of GitHub Actions Secrets to be synchronized. Specify separated by commas, spaces, or newlines.
     required: true
 
 runs:

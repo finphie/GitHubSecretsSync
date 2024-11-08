@@ -4,21 +4,21 @@
 [![NuGet](https://img.shields.io/nuget/v/GitHubSecretsSync?color=0078d4&label=NuGet)](https://www.nuget.org/packages/GitHubSecretsSync/)
 [![Azure Artifacts]()](https://dev.azure.com/finphie/Main/_artifacts/feed/DotNet/NuGet/GitHubSecretsSync?preferRelease=true)
 
-This is an application to synchronize GitHub Actions secrets.
+GitHub Actionsのシークレットを同期するアプリケーションです。
 
-## Description
+## 説明
 
-GitHubSecretsSync is an application for configuring GitHub Actions secrets.
+GitHubSecretsSyncは、GitHub Actionsのシークレット設定を行うアプリケーションです。
 
-- [Action](https://github.com/marketplace/actions/github-secrets-sync)
+- [アクション](https://github.com/marketplace/actions/github-secrets-sync)
 - [NuGet](https://www.nuget.org/packages/GitHubSecretsSync)
 - [Azure Artifacts](https://dev.azure.com/finphie/Main/_artifacts/feed/DotNet/NuGet/GitHubSecretsSync?preferRelease=true)
-- [Binary](https://github.com/finphie/GitHubSecretsSync/releases/latest)
+- [バイナリ](https://github.com/finphie/GitHubSecretsSync/releases/latest)
 - [Docker](https://github.com/finphie/GitHubSecretsSync/pkgs/container/git-hub-secrets-sync)
 
-## Usage
+## 使い方
 
-### Action
+### アクション
 
 ```yaml
 on:
@@ -40,7 +40,7 @@ jobs:
           GITHUB_TOKEN: {{ secrets.TOKEN }}
 ```
 
-### .NET tool
+### .NETツール
 
 ```shell
 GitHubSecretsSync actions \
@@ -48,37 +48,37 @@ GitHubSecretsSync actions \
     --secrets API_KEY_1,API_KEY_2
 ```
 
-## Arguments
+## 引数
 
-|Argument|Required|Default|Description|
+|引数|必須|デフォルト|説明|
 |-|-|-|-|
-|repository|**true**|-|"owner/repo" format repository name.|
-|secrets|**true**|-|List of GitHub Actions Secrets to be synchronized. Specify separated by commas, spaces, or newlines.|
+|repository|**true**|-|「オーナー名/リポジトリ名」形式のリポジトリ名。|
+|secrets|**true**|-|同期するGitHub Actionsのシークレットリスト。カンマやスペース、改行区切りで指定。|
 
-## Environment Variables
+## 環境変数
 
-|Argument|Required|Default|Description|
+|引数|必須|デフォルト|説明|
 |-|-|-|-|
-|GITHUB_TOKEN|**true**|-|Token with write permission to Secrets.|
+|GITHUB_TOKEN|**true**|-|Secretsに書き込み許可が付与されたトークン。|
 
-## Author
+## 作者
 
 finphie
 
-## License
+## ライセンス
 
 MIT
 
-## Credits
+## クレジット
 
-This project uses the following libraries, etc.
+このプロジェクトでは、次のライブラリ等を使用しています。
 
-### Libraries
+### ライブラリ
 
 - [ConsoleAppFramework](https://github.com/Cysharp/ConsoleAppFramework)
 - [libsodium](https://github.com/jedisct1/libsodium)
 
-### Analyzers
+### アナライザー
 
 - [DocumentationAnalyzers](https://github.com/DotNetAnalyzers/DocumentationAnalyzers)
 - [IDisposableAnalyzers](https://github.com/DotNetAnalyzers/IDisposableAnalyzers)
