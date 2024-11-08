@@ -17,6 +17,8 @@ runs:
   using: docker
   image: 'docker://ghcr.io/finphie/git-hub-secrets-sync:v0.1.0'
   args:
+    - actions
+
     - '--repository'
     - '${{ inputs.repository }}'
 
