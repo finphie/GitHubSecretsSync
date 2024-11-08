@@ -4,6 +4,8 @@
 [![NuGet](https://img.shields.io/nuget/v/GitHubSecretsSync?color=0078d4&label=NuGet)](https://www.nuget.org/packages/GitHubSecretsSync/)
 [![Azure Artifacts]()](https://dev.azure.com/finphie/Main/_artifacts/feed/DotNet/NuGet/GitHubSecretsSync?preferRelease=true)
 
+[日本語 (Japanese)](README.ja.md)
+
 This is an application to synchronize GitHub Actions secrets.
 
 ## Description
