@@ -33,7 +33,7 @@ jobs:
         uses: finphie/GitHubSecretsSync@v0.1.0
         with:
           repository: GitHubSecretsSync
-          actions-secrets: |
+          secrets: |
             API_KEY_1
             API_KEY_2
         env:
