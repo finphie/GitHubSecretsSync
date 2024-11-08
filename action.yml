@@ -1,0 +1,24 @@
+name: GitHub Secrets Sync
+description: シークレットを同期するGitHub Actionsです。
+author: finphie
+branding:
+  icon: upload-cloud
+  color: gray-dark
+
+inputs:
+  repository:
+    description: 「オーナー名/リポジトリ名」形式のリポジトリ名。
+    required: true
+  secrets:
+    description: シークレットのリスト。カンマやスペース、改行区切りで指定。
+    required: true
+
+runs:
+  using: docker
+  image: 'docker://ghcr.io/finphie/git-hub-secrets-sync:v0.1.0'
+  args:
+    - '--repository'
+    - '${{ inputs.repository }}'
+
+    - '--secrets'
+    - ${{ inputs.secrets }}
