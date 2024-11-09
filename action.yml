@@ -1,0 +1,26 @@
+name: GitHub Secrets Sync
+description: This is a GitHub Actions to synchronize secrets.
+author: finphie
+branding:
+  icon: upload-cloud
+  color: gray-dark
+
+inputs:
+  repository:
+    description: \"owner/repo\" format repository name.
+    required: true
+  secrets:
+    description: List of GitHub Actions Secrets to be synchronized. Specify separated by commas, spaces, or newlines.
+    required: true
+
+runs:
+  using: docker
+  image: 'docker://ghcr.io/finphie/git-hub-secrets-sync:v0.1.0'
+  args:
+    - actions
+
+    - '--repository'
+    - '${{ inputs.repository }}'
+
+    - '--secrets'
+    - ${{ inputs.secrets }}
