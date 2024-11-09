@@ -10,4 +10,4 @@ RUN --mount=type=cache,target=/root/.nuget/packages \
 FROM mcr.microsoft.com/dotnet/nightly/runtime-deps:9.0.0-rc.2-noble-chiseled-aot
 WORKDIR /app
 COPY --link --from=build /app .
-ENTRYPOINT ["./GitHubSecretsSync"]
+ENTRYPOINT ["/app/GitHubSecretsSync"]
