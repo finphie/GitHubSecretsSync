@@ -1,7 +1,8 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using FToolkit.Net.GitHub.Client;
-using FToolkit.Net.GitHub.Client.Actions.Secrets;
+using FToolkit.Helpers.GitHub;
+using FToolkit.Net.GitHub;
+using FToolkit.Net.GitHub.Actions.Secrets;
 
 namespace GitHubSecretsSync;
 
@@ -21,16 +22,10 @@ static class Commands
         ArgumentException.ThrowIfNullOrEmpty(repository);
         ArgumentNullException.ThrowIfNull(secrets);
 
-        if (repository.Split('/') is not [{ Length: > 0 } repositoryOwner, { Length: > 0 } repositoryName])
-        {
-            throw new ArgumentException("Invalid repository format. Expected format is owner/repo.");
-        }
-
+        var (repositoryOwner, repositoryName) = RepositoryHelper.GetRepositoryOwnerAndName(repository);
         Console.WriteLine($"Synchronizing GitHub Actions Secrets to {repository}.");
 
-        var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
-        ArgumentException.ThrowIfNullOrEmpty(token);
-
+        var token = GitHubEnvironment.GetGitHubToken();
         var client = GitHubClient.Create(token);
 
         Console.WriteLine("Getting the public key.");
