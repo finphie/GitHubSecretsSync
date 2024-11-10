@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: GitHub Secrets Sync
-        uses: finphie/GitHubSecretsSync@v0.1.3
+        uses: finphie/GitHubSecretsSync@v0.1.4
         with:
           repository: GitHubSecretsSync
           secrets: |
