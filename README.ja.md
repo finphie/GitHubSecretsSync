@@ -37,7 +37,7 @@ jobs:
             API_KEY_1
             API_KEY_2
         env:
-          GITHUB_TOKEN: {{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
 ```
 
 ### .NETツール
@@ -57,7 +57,7 @@ GitHubSecretsSync actions \
 
 ## 環境変数
 
-|引数|必須|デフォルト|説明|
+|変数名|必須|デフォルト|説明|
 |-|-|-|-|
 |GITHUB_TOKEN|**true**|-|Secretsに書き込み許可が付与されたトークン。|
 
